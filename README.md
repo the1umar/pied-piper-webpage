@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# Pied Piper — Senior Capstone Team Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Team webpage for our senior capstone project, **Analyzing cyber threats from
+log data**: finding network communications that never complete the TCP
+handshake, surfacing them in a visualization window, and letting users ask an
+AI chatbox questions about the same data.
 
-Currently, two official plugins are available:
+This site covers the Stage 1 deliverables — group members and roles, meetings
+and activities, and the upcoming schedule.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+React 19 + TypeScript, built with Vite, styled with Tailwind CSS v4.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Commands
 
-## Expanding the Oxlint configuration
+| Command | What it does |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server at http://localhost:5173 |
+| `npm run build` | Typecheck and build to `dist/` |
+| `npm run preview` | Serve the production build |
+| `npm run lint` | Run oxlint |
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Editing the content
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Most of what changes lives in two data files — no component edits needed:
+
+- `src/data/team.ts` — members, roles, focus blurbs, photos
+- `src/data/schedule.ts` — stage deadlines and the standup cadence
+
+### Adding a team photo
+
+Drop the original in `images/`, then resize it into the bundled assets folder:
+
+```sh
+sips -Z 900 -s format jpeg -s formatOptions 82 images/eric_desjardins.jpg \
+  --out src/assets/team/eric_desjardins.jpg
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Import it in `src/data/team.ts` and set it as that member's `photo`. A member
+with no `photo` renders an initials placeholder instead.
+
+## Design
+
+White background, bold display type (Space Grotesk), mint-green accents, and
+offset block shadows. Theme tokens are defined in the `@theme` block at the top
+of `src/index.css`.
