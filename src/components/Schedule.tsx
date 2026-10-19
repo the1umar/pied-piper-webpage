@@ -17,11 +17,20 @@ export function Schedule() {
 
         <ol className="mt-14 border-l-2 border-dashed border-ink/20 pl-8 sm:pl-12">
           {milestones.map((milestone) => (
-            <li key={milestone.title} className="relative pb-10 last:pb-0">
+            <li
+              key={milestone.title}
+              className={`relative pb-10 last:pb-0 ${
+                milestone.done ? 'opacity-60' : ''
+              }`}
+            >
               <span
                 aria-hidden="true"
                 className={`absolute top-1.5 -left-[2.4rem] size-4 rounded-full border-2 border-ink sm:-left-[3.4rem] ${
-                  milestone.highlight ? 'bg-mint-400' : 'bg-white'
+                  milestone.highlight
+                    ? 'bg-mint-400'
+                    : milestone.done
+                      ? 'bg-ink'
+                      : 'bg-white'
                 }`}
               />
               <div className="flex flex-wrap items-center gap-3">
@@ -31,7 +40,9 @@ export function Schedule() {
                     className={`rounded-full px-3 py-0.5 text-xs font-medium ${
                       milestone.highlight
                         ? 'bg-mint-300'
-                        : 'border border-ink/15 text-smoke'
+                        : milestone.done
+                          ? 'bg-ink text-white'
+                          : 'border border-ink/15 text-smoke'
                     }`}
                   >
                     {milestone.badge}

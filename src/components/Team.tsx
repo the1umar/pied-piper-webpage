@@ -18,6 +18,11 @@ export function Team() {
           </p>
         </div>
 
+        <p className="mt-5 max-w-xl text-lg text-pretty text-smoke">
+          Each card lists the project role we carry across the semester, then a
+          running record of what that person owned, stage by stage.
+        </p>
+
         <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member, index) => (
             <li key={member.name} className="group">
@@ -59,6 +64,23 @@ export function Team() {
                 {member.role}
               </p>
               <p className="mt-2 leading-relaxed text-smoke">{member.focus}</p>
+
+              <dl className="mt-4 divide-y divide-ink/10 rounded-xl border border-ink/15 bg-haze">
+                {member.contributions.map((contribution) => (
+                  <div key={contribution.stage} className="flex gap-3 p-4">
+                    <dt className="font-mono w-14 shrink-0 pt-0.5 text-[0.65rem] tracking-wide text-smoke uppercase">
+                      {contribution.stage}
+                    </dt>
+                    <dd
+                      className={`text-sm leading-relaxed ${
+                        contribution.work ? 'text-ink' : 'text-smoke/70 italic'
+                      }`}
+                    >
+                      {contribution.work ?? 'To be confirmed'}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </li>
           ))}
         </ul>

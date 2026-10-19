@@ -1,4 +1,4 @@
-import { standup } from '../data/schedule'
+import { meetings, standup } from '../data/schedule'
 import { Sparkle } from './Doodles'
 
 const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
@@ -30,7 +30,41 @@ export function Meetings() {
 
         <WeekCard />
       </div>
+
+      <MeetingLog />
     </section>
+  )
+}
+
+function MeetingLog() {
+  return (
+    <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
+          What we did this stage
+        </h3>
+        <p className="font-mono text-xs tracking-wide text-smoke uppercase">
+          Stage 2 · Oct 1 – Oct 18
+        </p>
+      </div>
+
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {meetings.map((meeting) => (
+          <li
+            key={meeting.date}
+            className="rounded-2xl border border-ink bg-white p-5"
+          >
+            <div className="flex items-baseline gap-3">
+              <p className="font-mono text-xs text-smoke">{meeting.date}</p>
+              <p className="font-display font-bold">{meeting.title}</p>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-pretty text-smoke">
+              {meeting.detail}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
