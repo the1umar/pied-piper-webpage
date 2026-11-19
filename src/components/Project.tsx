@@ -41,7 +41,8 @@ export function Project() {
         </h2>
         <p className="mt-5 max-w-xl text-lg text-pretty text-smoke">
           The brief asks for detection, visualization, and an AI assistant that
-          actually understands what's on screen. Here's how we've split it up.
+          actually understands what's on screen. Stage 3 turned all four pieces
+          into working code.
         </p>
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2">

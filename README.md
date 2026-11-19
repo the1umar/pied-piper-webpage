@@ -5,8 +5,9 @@ log data**: finding network communications that never complete the TCP
 handshake, surfacing them in a visualization window, and letting users ask an
 AI chatbox questions about the same data.
 
-This site covers the Stage 1 deliverables — group members and roles, meetings
-and activities, and the upcoming schedule.
+This site covers the per-stage deliverables — group members and roles, a
+running record of who did what in each stage, meetings and activities, and the
+upcoming schedule. It is current through **Stage 3** (implementation).
 
 **Live site:** https://the1umar.github.io/pied-piper-webpage/
 
@@ -42,9 +43,9 @@ first. Append a new entry when a stage starts:
 
 ```ts
 contributions: [
-  { stage: 'Stage 1', work: 'Built and deployed this team webpage.' },
   { stage: 'Stage 2', work: 'Team webpage and the low-fidelity UI prototype.' },
-  { stage: 'Stage 3' }, // no `work` yet — the card shows "to be confirmed"
+  { stage: 'Stage 3', work: 'AI assistant chat panel and this team webpage.' },
+  { stage: 'Stage 4' }, // no `work` yet — the card shows "to be confirmed"
 ]
 ```
 

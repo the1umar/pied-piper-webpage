@@ -44,7 +44,7 @@ function MeetingLog() {
           What we did this stage
         </h3>
         <p className="font-mono text-xs tracking-wide text-smoke uppercase">
-          Stage 2 · Oct 1 – Oct 18
+          Stage 3 · Oct 20 – Nov 19
         </p>
       </div>
 
